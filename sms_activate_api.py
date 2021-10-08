@@ -1,11 +1,11 @@
 import requests
 
 
-API_KEY = YOUR-API-KEY-HERE
+API_KEY = API_KEY
 URL = 'https://sms-activate.ru/stubs/handler_api.php'
 
 
-def responce(query):
+def response(query):
     data = {
         'api_key': API_KEY,
     }
@@ -18,7 +18,7 @@ def getBalance():
     query = {
         'action': 'getBalance'
     }
-    return responce(query)
+    return response(query)
 
 
 def getNumber(service):
@@ -47,7 +47,7 @@ def getNumber(service):
     # 0 - строка
     # 1 - id операции
     # 2 - номер телефона
-    return responce(query).split(':')
+    return response(query).split(':')
 
 
 def setStatus(dict, status):
@@ -63,7 +63,7 @@ def setStatus(dict, status):
         'id': dict[1],
         'status': status
     }
-    return responce(query)
+    return response(query)
 
 
 def getStatus(dict):
@@ -71,4 +71,7 @@ def getStatus(dict):
         'action': 'getStatus',
         'id': dict[1],
     }
-    return responce(query)
+    return response(query)
+
+
+
